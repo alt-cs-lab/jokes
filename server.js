@@ -11,10 +11,10 @@ app.use(express.static('public'))
 app.get('/random', (req, res) => {
   const index = parseInt(Math.random() * jokes.length)
   const joke = jokes[index]
-
+  
   if(req.headers.accept.includes("json"))
   {
-    const json = JSON.stringify({
+    const json = ({
       contents: {
         jokes: {
           joke: {
@@ -26,7 +26,7 @@ app.get('/random', (req, res) => {
     res.json(json)
   }
   else {
-    const xml = `<response><contents><jokes><joke><text>${joke.replace(/\n/g, '<br/>')}</text></joke></jokes></contents></response>`
+    const xml = `<xml><response><contents><jokes><joke><text>${joke.replace(/\n/g, '<br/>')}</text></joke></jokes></contents></response></xml>`
     res.set('Content-Type', 'text/xml')
     res.send(xml)
   }
