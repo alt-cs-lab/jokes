@@ -12,7 +12,7 @@ app.get('/random', (req, res) => {
   const index = parseInt(Math.random() * jokes.length)
   const joke = jokes[index]
   
-  if(req.headers.accept.includes("json"))
+  if(req.headers.accept && req.headers.accept.includes("json"))
   {
     const json = ({
       contents: {
