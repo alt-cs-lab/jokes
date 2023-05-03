@@ -26,7 +26,7 @@ app.get('/random', (req, res) => {
     res.json(json)
   }
   else {
-    const xml = `<xml><response><contents><jokes><joke><text>${joke.replace(/\n/g, '<br/>')}</text></joke></jokes></contents></response></xml>`
+    const xml = `<?xml version="1.0" encoding="utf-8"?><response><contents><jokes><joke><text>${joke.replace(/\n/g, '<br/>')}</text></joke></jokes></contents></response>`
     res.set('Content-Type', 'text/xml')
     res.send(xml)
   }
