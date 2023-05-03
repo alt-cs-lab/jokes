@@ -16,11 +16,13 @@ app.get('/random', (req, res) => {
   {
     const json = ({
       contents: {
-        jokes: {
-          joke: {
-            text: joke
+        jokes: [
+          {
+            joke: {
+              text: joke 
+            }
           }
-        }
+        ] 
       }
     })
     res.json(json)
